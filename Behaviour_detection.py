@@ -1,4 +1,4 @@
-# from robobopy.Robobo import Robobo
+from robobopy.Robobo import Robobo
 # from robobopy.utils.Acceleration import Acceleration
 # from robobopy.utils.Blob import Blob
 # from robobopy.utils.Color import Color
@@ -7,18 +7,27 @@
 # from robobopy.utils.DetectedObject import DetectedObject
 # from robobopy.utils.Emotions import Emotions
 # from robobopy.utils.Face import Face
-# from robobopy.utils.IR import IR
+from robobopy.utils.IR import IR
 # from robobopy.utils.Lanes import LaneBasic
 # from robobopy.utils.LED import LED
 # from robobopy.utils.Lines import Lines
 # from robobopy.utils.Message import Message
 # from robobopy.utils.Note import Note
-# from robobopy.utils.Orientation import Orientation
-# from robobopy.utils.QRCode import QRCode
-# from robobopy.utils.Sounds import Sounds
+from robobopy.utils.Orientation import Orientation
+from robobopy.utils.QRCode import QRCode
+from robobopy.utils.Sounds import Sounds
 # from robobopy.utils.StatusFrequency import StatusFrequency
 # from robobopy.utils.Tag import Tag
 # from robobopy.utils.Tap import Tap
-# from robobopy.utils.Wheels import Wheels
-# robobo = Robobo('localhost')  # For local simulation.
-# robobo.connect()
+from robobopy.utils.Wheels import Wheels
+
+#Robobo performs a scan of the area, detects and save the location of the current objects. 
+
+robobo = Robobo('localhost')
+robobo.connect 
+
+
+
+
+
+
