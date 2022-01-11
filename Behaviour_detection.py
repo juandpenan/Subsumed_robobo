@@ -24,7 +24,14 @@ from robobopy.utils.Wheels import Wheels
 #Robobo performs a scan of the area, detects and save the location of the current objects. 
 
 robobo = Robobo('localhost')
-robobo.connect 
+robobo.connect()
+
+robobo.moveTiltTo(90,20,False)
+robobo.startObjectRecognition()
+# robobo.movePanTo(-160,20, True)
+# robobo.movePanTo(160,20, True)
+# robobo.movePanTo(0,20, False)
+print(robobo.readDetectedObject())
 
 
 
