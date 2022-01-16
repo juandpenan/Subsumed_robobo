@@ -1,10 +1,14 @@
+from ast import If
+from multiprocessing.connection import wait
+from pickle import FALSE
+from matplotlib.pyplot import flag
 from robobopy.Robobo import Robobo
-# from robobopy.utils.Acceleration import Acceleration
+from robobopy.utils.Acceleration import Acceleration
 # from robobopy.utils.Blob import Blob
 # from robobopy.utils.Color import Color
 # from robobopy.utils.BlobColor import BlobColor
 # from robobopy.utils.ConnectionState import ConnectionState
-# from robobopy.utils.DetectedObject import DetectedObject
+from robobopy.utils.DetectedObject import DetectedObject
 # from robobopy.utils.Emotions import Emotions
 # from robobopy.utils.Face import Face
 from robobopy.utils.IR import IR
@@ -19,19 +23,50 @@ from robobopy.utils.Sounds import Sounds
 # from robobopy.utils.StatusFrequency import StatusFrequency
 # from robobopy.utils.Tag import Tag
 # from robobopy.utils.Tap import Tap
+# el sensor de posicion parece no sguir la mano derecha juh
 from robobopy.utils.Wheels import Wheels
 
-#Robobo performs a scan of the area, detects and save the location of the current objects. 
-
-robobo = Robobo('localhost')
+# Caliberar el .X porque no se cuanto es la cantidad de pixeles, este va hasta 100 por lo que use 50 e igual la velocidad
+robobo = Robobo("localhost")
 robobo.connect()
 
-robobo.moveTiltTo(90,20,False)
 robobo.startObjectRecognition()
-# robobo.movePanTo(-160,20, True)
-# robobo.movePanTo(160,20, True)
-# robobo.movePanTo(0,20, False)
-print(robobo.readDetectedObject())
+
+robobo.moveWheelsByTime(50,-50,5,False)
+robobo.stopMotors()
+print(robobo.readWheelSpeed(Wheels.L))   
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+#robobo.readPanLastTime()
+
+
+
+
+
+
+
+
+
 
 
 
