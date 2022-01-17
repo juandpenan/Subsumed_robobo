@@ -1,6 +1,5 @@
 from robobopy.Robobo import Robobo
 from robobopy.utils.Emotions import Emotions
-from robobopy.utils.IR import IR
 from Common_information import Server,Collition_distance,Screen_center,nominal_speed,turning_factor
 
 
