@@ -14,10 +14,12 @@ def ObjectApproach(last_object):
     dict = {}
     robobo.startObjectRecognition()
     robobo.setEmotionTo(Emotions.NORMAL)
-    while robobo.readIRSensor(IR.FrontC)< Collition_distance:    
-        if robobo.readDetectedObject().x > Screen_center and robobo.readDetectedObject().label == last_object:
+    #and robobo.readDetectedObject().label == last_object
+    while ((robobo.readIRSensor(IR.FrontC)< Collition_distance) and robobo.readClapCounter() <= 0 ):
+        print(robobo.readDetectedObject().x)    
+        if robobo.readDetectedObject().x < Screen_center and robobo.readDetectedObject().label == last_object :
             robobo.moveWheels(nominal_speed , nominal_speed+turning_factor)        
-        elif robobo.readDetectedObject().x < Screen_center and robobo.readDetectedObject().label == last_object:
+        elif robobo.readDetectedObject().x > Screen_center and robobo.readDetectedObject().label == last_object :
             robobo.moveWheels(nominal_speed + turning_factor , nominal_speed)       
         else:        
             robobo.moveWheels(nominal_speed,nominal_speed)
@@ -25,8 +27,11 @@ def ObjectApproach(last_object):
     robobo.stopMotors()
     robobo.setEmotionTo(Emotions.HAPPY)
     robobo.sayText("Gotchaa",False)
-    #dict["transition"]= 3
-    dict["on_off"]= False
+    if robobo.readClapCounter() > 0:
+        dict["transition"] = 5
+    else:
+        dict["transition"]= 3
+    
     return dict
     
 
