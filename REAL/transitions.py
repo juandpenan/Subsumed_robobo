@@ -10,5 +10,5 @@ def TransitionManager(transition):
         CurrentBehaviour = Behaviours.QrDetection
     elif transition == 4:
         CurrentBehaviour = Behaviours.Push_to_goal
-    
+    print(transition)
     return CurrentBehaviour

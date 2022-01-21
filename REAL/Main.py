@@ -20,10 +20,12 @@ robobo.connect()
 CurrentBehaviour = Behaviours.ObjDetection
 
 while on_off:
+    
     if CurrentBehaviour.name == "ObjDetection":
        temp_dict= Obj_Detection()
        transition = temp_dict.get("transition")
-       last_object = temp_dict.get("last_object")                
+       last_object = temp_dict.get("last_object")
+       print(last_object)               
 
     elif CurrentBehaviour.name == "Approach_object":
         temp_dict =  ObjectApproach(last_object)
@@ -32,14 +34,16 @@ while on_off:
         
     elif CurrentBehaviour.name == "QrDetection":
         temp_dict = Qr_detection(last_object)
-        last_qr = temp_dict.get("last_qr")      
+        last_qr = temp_dict.get("last_qr") 
+        transition = temp_dict.get("transition")     
 
     elif CurrentBehaviour.name == "Push_to_goal":
         temp_dict = PushToGoal(last_qr)
+        transition = temp_dict.get("transition")
     elif CurrentBehaviour.name == "Terminator":
-        on_off = False
-    else:
-        CurrentBehaviour =TransitionManager(transition)
+        on_off = False   
+
+    CurrentBehaviour =TransitionManager(transition)
 
 
 
